@@ -13,6 +13,8 @@ Rails.application.routes.draw do
 
   post '/signup', to: 'users#create'
 
+  get '/roman', to: 'static_pages#roman'
+
 
   resources :users
 
