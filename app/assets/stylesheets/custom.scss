@@ -78,7 +78,7 @@ p {
 .btn-group{
 
   float:right;
-  
+
 
 
 
@@ -203,4 +203,21 @@ input {
 #session_remember_me {
   width: auto;
   margin-left: 0;
+}
+
+/*balance box */
+
+.balance-box{
+
+  clear: both;
+  float: left;
+  width: 100%;
+  margin-top: 45px;
+  @include box_sizing;
+
+
+
+
+
+
 }

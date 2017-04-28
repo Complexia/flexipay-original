@@ -1,2 +1,6 @@
-<h1>Wallet#balance</h1>
-<p>Find me in app/views/wallet/balance.html.erb</p>
+<% provide(:title) %>
+<div class = "balance-box">
+  <small>
+    <h3>Balance:  $<%=current_user.balance%></h3>
+  </small>
+</div>
