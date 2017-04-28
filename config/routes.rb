@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
 
-  get '/wallet', to: 'wallet#balance'
+
 
   get 'sessions/new'
 
@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   get '/contact', to: 'static_pages#contact'
 
   get '/signup', to: 'users#new'
+  get '/wallet', to: 'wallet#balance'
 
   post '/signup', to: 'users#create'
 
@@ -25,7 +26,7 @@ Rails.application.routes.draw do
 
 
 
-
+  
   resources :users
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
