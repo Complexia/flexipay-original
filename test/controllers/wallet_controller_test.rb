@@ -9,6 +9,7 @@ class WalletControllerTest < ActionDispatch::IntegrationTest
 
 
   test "should get new" do
+    
     log_in_as(@user)
     get wallet_path
     assert_response :success
