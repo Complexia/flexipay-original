@@ -1,0 +1,64 @@
+<% provide(:title, "Deposit") %>
+<h1>Deposit</h1>
+
+
+<!--
+<form action="/deposit" method="POST">
+  <script
+    src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+    data-key="pk_test_ExNrHqYvAaJ2e0uT8FS1xilw"
+    data-amount="999"
+    data-name="FlexiPay"
+    data-description="Deposit"
+    data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+    data-locale="auto"
+    data-zip-code="true"
+    data-currency="aud">
+  </script>
+</form> -->
+
+
+<!--
+ <%= form_for(:payment, url: deposit_path) do |f| %>
+  <%= f.hidden_field :amount %>
+  <div class="field">
+    <%= f.label :email %>
+    <%= f.text_field :email %>
+  </div>
+  <div class="field">
+    <%= label_tag :card_number, "Credit Card Number" %>
+    <%= text_field_tag :card_number, nil, name: nil %>
+  </div>
+  <div class ="field">
+    <%= label_tag :card_code, "CVV" %>
+    <%= text_field_tag :card_code, nil, name: nil %>
+  </div>
+  <div class="field">
+    <%= label_tag :card_month, "Card Expiration" %>
+    <%= select_month nil, {add_month_numbers: true}, {name: nil, id: "card_month"} %>
+    <%= select_year nil, {Start_year: Date.today.year, end_year: Date.today.year+15},
+        {name: nil, id: "card_year"} %>
+  </div>
+  <div class="action">
+    <%=f.submit "Deposit" %>
+  </div>
+  <% end %> -->
+
+   <%= form_tag deposit_path do %>
+    <article>
+      <% if flash[:error].present? %>
+        <div id="error_explanation">
+          <p><%= flash[:error] %></p>
+        </div>
+      <% end %>
+      <label class="amount">
+        <span>Amount: $5</span>
+      </label>
+    </article>
+
+    <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+            data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+            data-description="Deposit"
+            data-amount="500"
+            data-locale="auto"></script>
+<% end %> 

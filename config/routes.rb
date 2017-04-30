@@ -2,6 +2,13 @@ Rails.application.routes.draw do
 
 
 
+  resources :payments, only: [:new, :confirmation]
+  get '/deposit', to: 'payments#new'
+
+  post '/deposit', to: 'payments#confirmation'
+
+
+
 
   get 'sessions/new'
 

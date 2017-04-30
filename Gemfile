@@ -14,6 +14,8 @@ gem 'jbuilder',     '2.4.1'
 gem 'coffee-script-source', '1.8.0'
 gem 'will_paginate',           '3.1.0'
 gem 'bootstrap-will_paginate', '0.0.10'
+gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
+gem 'dotenv-rails', :groups => [:development, :test]
 
 group :development, :test do
   gem 'sqlite3', '1.3.12'
