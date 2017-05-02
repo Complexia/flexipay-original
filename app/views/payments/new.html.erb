@@ -1,8 +1,9 @@
 <% provide(:title, "Deposit") %>
 <h1>Deposit</h1>
 
-
 <!--
+
+
 <form action="/deposit" method="POST">
   <script
     src="https://checkout.stripe.com/checkout.js" class="stripe-button"
@@ -15,11 +16,12 @@
     data-zip-code="true"
     data-currency="aud">
   </script>
-</form> -->
+</form>
+-->
 
 
 <!--
- <%= form_for(:payment, url: deposit_path) do |f| %>
+ <%= form_for(deposit_path) do |f| %>
   <%= f.hidden_field :amount %>
   <div class="field">
     <%= f.label :email %>
@@ -42,7 +44,13 @@
   <div class="action">
     <%=f.submit "Deposit" %>
   </div>
-  <% end %> -->
+  <% end %>
+-->
+
+
+
+  
+
 
    <%= form_tag deposit_path do %>
     <article>
@@ -59,6 +67,7 @@
     <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
             data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
             data-description="Deposit"
-            data-amount="500"
+            data-amount= "500"
+
             data-locale="auto"></script>
-<% end %> 
+<% end %>

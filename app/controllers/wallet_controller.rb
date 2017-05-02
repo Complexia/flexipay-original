@@ -7,6 +7,9 @@ class WalletController < ApplicationController
 
   end
 
+  
+
+
   private
   def logged_in_user
     unless logged_in?
