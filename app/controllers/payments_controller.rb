@@ -65,15 +65,17 @@ end
 
   def confirmation
 
-    @amount = 500
+    @amount = 5
 
     customer = StripeTool.create_customer(email: params[:stripeEmail],
                                           stripe_token: params[:stripeToken])
 
 
     charge = StripeTool.create_charge(customer_id: customer.id,
-                                      amount: @amount,
+                                      amount: @amount * 100,
                                       description: 'Rails Stripe customer')
+
+    current_user.update_attribute(:balance, current_user.balance + @amount)
 
     rescue Stripe::CardError => e
       flash[:error] = e.message
