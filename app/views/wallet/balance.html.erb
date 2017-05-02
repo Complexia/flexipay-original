@@ -1,7 +1,14 @@
 <% provide(:title) %>
 <div class = "balance-box">
   <small>
-    <h3>Balance:  $<%=current_user.balance%></h3>
+
+    <h3>Balance: $<%=
+      if current_user.balance.nil?
+        render html: "0.00"
+      else
+        current_user.balance
+      end %> </h3>
+
 
 
   </small>

@@ -75,7 +75,14 @@ end
                                       amount: @amount * 100,
                                       description: 'Rails Stripe customer')
 
-    current_user.update_attribute(:balance, current_user.balance + @amount)
+    if current_user.balance.nil?
+      current_user.update_attribute(:balance, @amount)
+    else
+      current_user.update_attribute(:balance, current_user.balance + @amount)
+    end
+
+
+
 
     rescue Stripe::CardError => e
       flash[:error] = e.message

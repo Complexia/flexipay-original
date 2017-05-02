@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 20170428075335) do
     t.string   "password_digest"
     t.string   "remember_digest"
     t.boolean  "admin",           default: false
-    t.         "balance"
+    t.money    "balance",         default: 0.00
     t.index ["email"], name: "index_users_on_email"
   end
 
