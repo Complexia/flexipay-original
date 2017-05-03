@@ -71,7 +71,7 @@ end
 
     #@amount = params[:user][:deposit_amount]
 
-    @amount = 20 unless current_user.deposit_amount.nil?
+    @amount = 20
 
     current_user.update_attribute(:deposit_amount, @amount)
 
