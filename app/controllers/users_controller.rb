@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   before_action :correct_user,   only: [:edit, :update]
 
 
-  #before_action :admin_user, only: [:show]
+
   def new
     unless logged_in?
       @user = User.new
@@ -63,11 +63,7 @@ class UsersController < ApplicationController
       end
     end
 
-    def admin_user
-      unless current_user.admin?
-        redirect_to(root_url)
-      end
-    end
+    
 
     def correct_user
       @user = User.find(params[:id])

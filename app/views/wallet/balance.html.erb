@@ -1,4 +1,4 @@
-<% provide(:title) %>
+<% provide(:title, "Wallet") %>
 <div class = "balance-box">
   <small>
 
@@ -15,4 +15,14 @@
 
 
 </div>
-<%= link_to "Deposit", deposit_path, class: "btn btn-lg btn-primary" %>
+
+<%= form_for(current_user, url: deposit_path) do |f| %>
+
+  <%= f.label :deposit_amount %>
+  <%= f.text_field :deposit_amount  %>
+
+  <%= f.submit "Deposit amount", class: "btn btn-lg btn-primary" %>
+
+<%end%>
+
+<!--<%= link_to "Deposit", deposit_path, class: "btn btn-lg btn-primary" %>-->

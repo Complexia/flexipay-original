@@ -3,9 +3,13 @@ class PaymentsController < ApplicationController
 
   before_action :logged_in_user
 
+    #@amount = 0;
+
+
 
   def new
 
+    #@amount = params[:user][:deposit_amount]
 
   end
 =begin
@@ -65,7 +69,12 @@ end
 
   def confirmation
 
-    @amount = 5
+    #@amount = params[:user][:deposit_amount]
+    @amount = 10
+    @amount = 14 unless current_user.deposit_amount.nil?
+
+    #current_user.update_attribute(:deposit_amount, @amount)
+
 
     customer = StripeTool.create_customer(email: params[:stripeEmail],
                                           stripe_token: params[:stripeToken])
@@ -99,4 +108,6 @@ end
       redirect_to login_url
     end
   end
+
+
 end
