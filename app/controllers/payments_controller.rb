@@ -70,10 +70,10 @@ end
   def confirmation
 
     #@amount = params[:user][:deposit_amount]
-    @amount = 10
-    @amount = 14 unless current_user.deposit_amount.nil?
 
-    #current_user.update_attribute(:deposit_amount, @amount)
+    @amount = 20 unless current_user.deposit_amount.nil?
+
+    current_user.update_attribute(:deposit_amount, @amount)
 
 
     customer = StripeTool.create_customer(email: params[:stripeEmail],
