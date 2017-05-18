@@ -3,11 +3,10 @@ class WalletController < ApplicationController
   before_action :logged_in_user
 
   def balance
-
-
+    
   end
 
-  
+
 
 
   private

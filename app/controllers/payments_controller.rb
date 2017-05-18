@@ -3,13 +3,15 @@ class PaymentsController < ApplicationController
 
   before_action :logged_in_user
 
-    #@amount = 0;
 
 
+  @@amount = 20
 
   def new
 
-    #@amount = params[:user][:deposit_amount]
+    @@amount = Integer(params[:q])
+    #current_user.update_attribute(:deposit_amount, params[:amount])
+
 
   end
 =begin
@@ -70,10 +72,12 @@ end
   def confirmation
 
     #@amount = params[:user][:deposit_amount]
+    #@user = User.find(params[:id])
+    #current_user.update_attribute(:deposit_amount, 100);
 
-    @amount = 20
 
-    current_user.update_attribute(:deposit_amount, @amount)
+
+
 
 
     customer = StripeTool.create_customer(email: params[:stripeEmail],
@@ -81,13 +85,13 @@ end
 
 
     charge = StripeTool.create_charge(customer_id: customer.id,
-                                      amount: @amount * 100,
+                                      amount: @@amount * 100,
                                       description: 'Rails Stripe customer')
 
     if current_user.balance.nil?
-      current_user.update_attribute(:balance, @amount)
+      current_user.update_attribute(:balance, @@amount)
     else
-      current_user.update_attribute(:balance, current_user.balance + @amount)
+      current_user.update_attribute(:balance, current_user.balance + @@amount)
     end
 
 

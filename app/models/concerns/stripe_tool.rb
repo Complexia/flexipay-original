@@ -10,7 +10,7 @@ module StripeTool
   def self.create_charge(customer_id: customer_id, amount: amount, description: description)
     Stripe::Charge.create(
       customer: customer_id,
-      amount: 500,
+      amount: amount,
       description: description,
       currency: 'aud'
 

@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   post '/deposit', to: 'payments#confirmation'
 
-
+  post '/payments/new', to: 'payments#confirmation'
 
   post '/wallet', to: 'wallet#something'
   get 'sessions/new'

@@ -1,28 +1,37 @@
 <% provide(:title, "Wallet") %>
-<div class = "balance-box">
-  <small>
+<div class="row">
+  <div class="col-md-4">
 
-    <h3>Balance: $<%=
-      if current_user.balance.nil?
-        render html: "0.00"
-      else
-        current_user.balance
-      end %> </h3>
+    <small>
+      <h3>Balance: $<%=
+        if current_user.balance.nil?
+          render html: "0.00"
+        else
+          current_user.balance
+        end %> </h3>
+        <%= form_tag(deposit_path, :method => "get") do %>
+            <%= label_tag(:q, "Amount:") %>
+            <%= number_field_tag(:q) %>
+            <%= submit_tag "Deposit", :class => "btn btn-lg btn-primary" %>
+        <% end %>
+    </small>
+</div>
 
 
 
-  </small>
+
 
 
 </div>
+<!--
+<div>
+  <%= form_for(:current_user, url: deposit_path) do |f| %>
 
-<%= form_for(current_user, url: deposit_path) do |f| %>
+    <%= f.label :deposit_amount %>
+    <%= f.text_field :deposit_amount  %>
 
-  <%= f.label :deposit_amount %>
-  <%= f.text_field :deposit_amount  %>
+    <%= f.submit "Deposit amount", class: "btn btn-lg btn-primary" %>
 
-  <%= f.submit "Deposit amount", class: "btn btn-primary" %>
-
-<%end%>
-
-<!--<%= link_to "Deposit", deposit_path, class: "btn btn-lg btn-primary" %>-->
+  <%end%>
+</div>
+-->
