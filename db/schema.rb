@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 20170524004809) do
     t.string   "password_digest"
     t.string   "remember_digest"
     t.boolean  "admin",           default: false
-    t.         "balance",         default: "20"
+    t.         "balance"
     t.         "deposit_amount"
     t.string   "bitcoin"
     t.string   "money"

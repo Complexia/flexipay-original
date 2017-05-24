@@ -1,0 +1,20 @@
+<% provide(:title, "Transfer money") %>
+<div class="row">
+  <div class="col-md-4">
+
+    <small>
+
+        <%= form_tag(transfera_path, :method => "get") do %>
+            <%= label_tag(:e, "User email:") %>
+            <%= email_field_tag :e %>
+            <%= label_tag(:t, "Transfer amount:") %>
+            <%= number_field_tag :t %>
+            <%= submit_tag "Transfer", :class => "btn btn-lg btn-primary" %>
+
+        <% end %>
+
+    </small>
+
+</div>
+
+</div>

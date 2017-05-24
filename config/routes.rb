@@ -2,6 +2,10 @@ Rails.application.routes.draw do
 
 
 
+  get '/transfer', to: 'transfers#new'
+
+  get 'transfera', to: 'transfers#transfer'
+
   resources :payments, only: [:new, :confirmation]
   get '/deposit', to: 'payments#new'
 
