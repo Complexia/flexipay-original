@@ -3,7 +3,7 @@
   <div class="col-md-4">
 
     <small>
-      <h3>Balance: $<%=
+      <h3>Bitcoin Balance: $<%=
         if current_user.bitcoin.nil?
           render html: "0.00"
         else
