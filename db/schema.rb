@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170502101819) do
+ActiveRecord::Schema.define(version: 20170524004809) do
 
   create_table "users", force: :cascade do |t|
     t.string   "name"
@@ -20,8 +20,10 @@ ActiveRecord::Schema.define(version: 20170502101819) do
     t.string   "password_digest"
     t.string   "remember_digest"
     t.boolean  "admin",           default: false
-    t.         "balance"
+    t.         "balance",         default: "20"
     t.         "deposit_amount"
+    t.string   "bitcoin"
+    t.string   "money"
     t.index ["email"], name: "index_users_on_email"
   end
 

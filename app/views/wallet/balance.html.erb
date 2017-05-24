@@ -11,12 +11,17 @@
         end %> </h3>
         <%= form_tag(deposit_path, :method => "get") do %>
             <%= label_tag(:q, "Amount:") %>
-            <%= number_field_tag(:q) %>
+            <%= number_field_tag :q %>
             <%= submit_tag "Deposit", :class => "btn btn-lg btn-primary" %>
-        <% end %>
-    </small>
-</div>
 
+        <% end %>
+
+    </small>
+
+</div>
+<div class="col-md-4 .col-md-offset-4">
+  <%= link_to "View bitcoin balance", bitcoin_path, class: "btn btn-lg btn-primary" %>
+</div>
 
 
 

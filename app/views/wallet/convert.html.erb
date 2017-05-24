@@ -1,0 +1,24 @@
+<% provide(:title, "Wallet") %>
+<div class="row">
+  <div class="col-md-4">
+
+    <small>
+      <h3>Available Balance: $<%=
+        if current_user.balance.nil?
+          render html: "0.00"
+        else
+          current_user.balance
+        end %> </h3>
+
+        <%= form_tag(confirmation_path, :method => "get") do %>
+            <%= label_tag(:w, "Amount to convert:") %>
+            <%= number_field_tag :w %>
+            <%= submit_tag "Convert", :class => "btn btn-lg btn-primary" %>
+
+        <% end %>
+
+
+
+    </small>
+</div>
+</div>

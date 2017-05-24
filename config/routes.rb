@@ -9,8 +9,10 @@ Rails.application.routes.draw do
 
   post '/payments/new', to: 'payments#confirmation'
 
-  post '/wallet', to: 'wallet#something'
+  #post '/wallet', to: 'wallet#something'
   get 'sessions/new'
+
+  get '/confirmation', to: 'wallet#confirmation'
 
   root 'static_pages#home'
 
@@ -22,6 +24,8 @@ Rails.application.routes.draw do
 
   get '/signup', to: 'users#new'
   get '/wallet', to: 'wallet#balance'
+  get '/bitcoin', to: 'wallet#bitcoin'
+  get '/convert', to: 'wallet#convert'
 
   post '/signup', to: 'users#create'
 

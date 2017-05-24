@@ -5,11 +5,18 @@ class PaymentsController < ApplicationController
 
 
 
-  @@amount = 20
+
 
   def new
 
     @@amount = Integer(params[:q])
+    rescue
+      redirect_to wallet_path
+      flash[:danger] = "Make sure you select a correct value to deposit"
+
+
+
+
     #current_user.update_attribute(:deposit_amount, params[:amount])
 
 
